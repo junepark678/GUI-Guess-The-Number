@@ -8,6 +8,7 @@ score = 0
 tk = Tk()
 L2Text = StringVar(master=tk)
 L1Text = StringVar(master=tk)
+# what happens when submit button is clicked
 def submit(*args, **kwargs):
     global playerGuess, score
     score = score+1
@@ -30,7 +31,7 @@ def submit(*args, **kwargs):
 
 
 
-
+# defines starting variables
 def start():
     global numToGuess, playerGuess, L1Text, L2Text
     numToGuess = random.randint(1, 100)
@@ -43,7 +44,7 @@ def start():
 
 
 start()
-
+# defines main widgets
 tk.title("guess the number")
 L1 = Label(tk, textvariable=L1Text)
 L1Text.set("Guess a number between 1 and 100")
@@ -55,6 +56,7 @@ E1 = Entry(tk)
 E1.pack()
 B1 = Button(tk, text="Submit", command=submit)
 B1.pack()
+# binding the return/enter key to run submit functions
 tk.bind("<Return>", submit)
 
 mainloop()
